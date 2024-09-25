@@ -1,0 +1,53 @@
+server:
+  port: 8089
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: AuthService
+          uri: lb://AuthService
+          predicates:
+            - Path=/customer/**,/auths/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: userCircuitBreaker
+                fallbackuri: forward:/userServiceFallBack
+        - id: AdminService
+          uri: lb://AdminService
+          predicates:
+            - Path=/admin/**,/auth/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: adminCircuitBreaker
+                fallbackuri: forward:/adminServiceFallBack
+        - id: LoanService
+          uri: lb://LoanService
+          predicates:
+            - Path=/loans/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: loanCircuitBreaker
+                fallbackuri: forward:/loanServiceFallBack
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      adminCircuitBreaker:
+        registerHealthIndicator: true
+        failureRateThreshold: 50
+        slidingWindowSize: 10
+        waitDurationInOpenState: 10000
+      userCircuitBreaker:
+        registerHealthIndicator: true
+        failureRateThreshold: 50
+        slidingWindowSize: 10
+        waitDurationInOpenState: 10000
+      loanCircuitBreaker:
+        registerHealthIndicator: true
+        failureRateThreshold: 50
+        slidingWindowSize: 10
+        waitDurationInOpenState: 10000
