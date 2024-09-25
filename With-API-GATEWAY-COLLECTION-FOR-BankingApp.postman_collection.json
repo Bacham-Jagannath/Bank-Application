@@ -1,0 +1,423 @@
+{
+	"info": {
+		"_postman_id": "340de69d-21d7-41f0-8980-c2471ceb57ce",
+		"name": "With-API-GATEWAY-COLLECTION-FOR-BankingApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36972942"
+	},
+	"item": [
+		{
+			"name": "Welcome Page For Customer Service",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/auths/welcome",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"auths",
+						"welcome"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Page For Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"panNumber\": \"BAPPN1611J\",\r\n  \"firstname\": \"jagan\",\r\n  \"lastname\": \"balu\",\r\n  \"password\": \"jagan123\",\r\n  \"email\": \"jagannath88860@gmail.com\",\r\n  \"mobileNum\": 9052273394,\r\n  \"role\": \"USER\",\r\n  \"account\": {\r\n    \"accountNo\": \"35482074938\",\r\n    \"accountType\": \"SAVING\",\r\n    \"currentBalance\": 500,\r\n    \"accountSource\": \"HDFC\"\r\n  },\r\n  \"status\": \"CREATED\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/auths/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"auths",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Welcome Page For Admin Service",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/auth/welcome",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"auth",
+						"welcome"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"Narahari\",\r\n  \"password\": \"jagan123\",\r\n  \"email\": \"jagan1234@gmail.com\",\r\n  \"mobileNum\": 8341140401,\r\n  \"role\": \"ADMIN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/auth/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"auth",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Narahari\",\r\n    \"password\": \"jagan123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find All Customers by Admin Service",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJpZCI6MiwidXNlcm5hbWUiOiJOYXJhaGFyaSIsInN1YiI6IkpXVCBWYWxpZGF0b3IgVG9rZW4iLCJpYXQiOjE3MjcyNDU2MTIsImV4cCI6MTcyNzMzMjAxMn0.LygZRqhSkgGtcKuTOM1PqCzuhzLoIfTKuXzpPwJylyg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8089/admin/findAllCustomer/ALL",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"admin",
+						"findAllCustomer",
+						"ALL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Customer by Admin Service ",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJpZCI6MiwidXNlcm5hbWUiOiJOYXJhaGFyaSIsInN1YiI6IkpXVCBWYWxpZGF0b3IgVG9rZW4iLCJpYXQiOjE3MjcyNDU2MTIsImV4cCI6MTcyNzMzMjAxMn0.LygZRqhSkgGtcKuTOM1PqCzuhzLoIfTKuXzpPwJylyg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"panNumber\":\"BAPPN1611J\",\r\n    \"status\":\"APPROVED\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/admin/updateCustomer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"admin",
+						"updateCustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"panNumber\": \"BAPPN1611J\",\r\n    \"password\": \"jagan123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/auths/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"auths",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Password change request by customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiVVNFUiIsIm5hbWUiOiJqYWdhbiBiYWx1IiwicGFuTnVtYmVyIjoiQkFQUE4xNjExSiIsImlkIjoiQkFQUE4xNjExSiIsInVzZXJuYW1lIjoiQkFQUE4xNjExSiIsInN1YiI6IkpXVCBWYWxpZGF0b3IgVG9rZW4iLCJpYXQiOjE3MjcyNDg1NDEsImV4cCI6MTcyNzMzNDk0MX0.CtyzCb10AptA8H3kCm4e_2zazDZ2NDsdkkxsUS00DDI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"password\": \"jagannath123\",\r\n  \"panNumber\": \"BRPPJ8165A\",\r\n  \"status\": \"CREATED\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/customer/createPasswordChangeRequest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"customer",
+						"createPasswordChangeRequest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find All Password Change Requests by admin",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJpZCI6MiwidXNlcm5hbWUiOiJOYXJhaGFyaSIsInN1YiI6IkpXVCBWYWxpZGF0b3IgVG9rZW4iLCJpYXQiOjE3MjcyNDU2MTIsImV4cCI6MTcyNzMzMjAxMn0.LygZRqhSkgGtcKuTOM1PqCzuhzLoIfTKuXzpPwJylyg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8089/admin/findAllPasswordChangeRequests/ALL",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"admin",
+						"findAllPasswordChangeRequests",
+						"ALL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Password Change Request by admin",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJpZCI6MiwidXNlcm5hbWUiOiJOYXJhaGFyaSIsInN1YiI6IkpXVCBWYWxpZGF0b3IgVG9rZW4iLCJpYXQiOjE3MjcyNDU2MTIsImV4cCI6MTcyNzMzMjAxMn0.LygZRqhSkgGtcKuTOM1PqCzuhzLoIfTKuXzpPwJylyg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"panNumber\": \"BRPPJ8165A\",\r\n  \"status\": \"APPROVED\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/admin/updatePasswordChangeRequest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"admin",
+						"updatePasswordChangeRequest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Loan by Customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiVVNFUiIsIm5hbWUiOiJqYWdhbiBiYWx1IiwicGFuTnVtYmVyIjoiQkFQUE4xNjExSiIsImlkIjoiQkFQUE4xNjExSiIsInVzZXJuYW1lIjoiQkFQUE4xNjExSiIsInN1YiI6IkpXVCBWYWxpZGF0b3IgVG9rZW4iLCJpYXQiOjE3MjcyNDkxMTAsImV4cCI6MTcyNzMzNTUxMH0.fx6akuHy2cRg4447raKV3XOSGTWn7I39jhBOlAevYD0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"panNumber\": \"BAPPN1611J\",\r\n  \"status\": \"CREATED\",\r\n  \"loanAmount\":50000,\r\n  \"loanType\":\"GOLD\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/customer/createLoan/BAPPN1611J",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"customer",
+						"createLoan",
+						"BAPPN1611J"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get All Created Loans by admin",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJpZCI6MiwidXNlcm5hbWUiOiJOYXJhaGFyaSIsInN1YiI6IkpXVCBWYWxpZGF0b3IgVG9rZW4iLCJpYXQiOjE3MjcyNDU2MTIsImV4cCI6MTcyNzMzMjAxMn0.LygZRqhSkgGtcKuTOM1PqCzuhzLoIfTKuXzpPwJylyg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8089/admin/getAllCreatedLoans",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"admin",
+						"getAllCreatedLoans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Loan to IN_PROGRESS By Admin",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJpZCI6MiwidXNlcm5hbWUiOiJOYXJhaGFyaSIsInN1YiI6IkpXVCBWYWxpZGF0b3IgVG9rZW4iLCJpYXQiOjE3MjcyNDU2MTIsImV4cCI6MTcyNzMzMjAxMn0.LygZRqhSkgGtcKuTOM1PqCzuhzLoIfTKuXzpPwJylyg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"loanId\": 1,\r\n    \"loanAmount\": 50000.0,\r\n    \"loanType\": \"GOLD\",\r\n    \"status\": \"IN_PROGRESS\",\r\n    \"panNumber\": \"BAPPN1611J\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/admin/updateLoanById/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"admin",
+						"updateLoanById",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
